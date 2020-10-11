@@ -18,11 +18,13 @@ public class Movement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false; // For quick rotation
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (agent.velocity.magnitude != 0) transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
         if(followed != null)
         {
             RotateTowardTarget(); //cant add rotation in chek, needs to be done everyfame else slow takes too long to rotate.
