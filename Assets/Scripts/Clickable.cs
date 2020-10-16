@@ -8,8 +8,13 @@ public class Clickable : MonoBehaviour
 
     public float range = 3f; // interactable range
     bool isFocus = false;
-    Transform player;
-    bool interacted = false;
+    protected Transform player;
+    private bool interacted = false;
+        
+    private void Start()
+    {
+
+    }
     private void Update()
     {
         if (isFocus && interacted == false)
@@ -17,19 +22,22 @@ public class Clickable : MonoBehaviour
             float distance = Vector3.Distance(player.position, transform.position);
             if(distance <= range)
             {
-                Debug.Log("interact");
+                
+                interact();
+                //Debug.Log("interact");
                 interacted = true;
+
             }
         }
     }
     public void OnFocused(Transform transform)
     {
-        interact();
+
         interacted = false;
         isFocus = true;
         player = transform;
     }
-    public void DeFocus()
+    public virtual void DeFocus()
     {
         interacted = false;
         isFocus = false;
@@ -43,6 +51,6 @@ public class Clickable : MonoBehaviour
 
     public virtual void interact()
     {
-        Debug.Log(this.name);
+        
     }
 }

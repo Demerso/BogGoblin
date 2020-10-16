@@ -9,7 +9,7 @@ public class CamControl : MonoBehaviour
 
     public Vector3 offset;
     public float pitch = 2f;
-    private float cZoom = 10f;
+    private float cZoom = 8f;
 
     void Start()
     {
