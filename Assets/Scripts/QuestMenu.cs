@@ -16,6 +16,7 @@ public class QuestMenu : MonoBehaviour
     private void Start()
     {
         AS = this.GetComponent<AudioSource>();
+        questUI.SetActive(false);
        
     }
     public void ShowQuest()
