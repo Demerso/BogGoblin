@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -9,7 +10,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
 
     Camera cam;
-    public LayerMask mask;
     Movement moves;
     public Clickable Looking;
    
@@ -27,18 +27,20 @@ public class PlayerController : MonoBehaviour
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit,100,mask))
+            if(Physics.Raycast(ray, out hit,100))
             {
-                if(Looking != null)
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
-                    Looking.DeFocus();
+                    if(Looking != null)
+                    {
+                        Looking.DeFocus();
+                    }
+                    moves.MoveToPoint(hit.point);
+                    //Maybe Make function Unfollow, could help clarify.
+                    Looking = null;
+                    moves.UnFollow();
                 }
-                moves.MoveToPoint(hit.point);
-                //Maybe Make function Unfollow, could help clarify.
-                Looking = null;
-                moves.UnFollow();
-
-     
+                
             }
 
         }
