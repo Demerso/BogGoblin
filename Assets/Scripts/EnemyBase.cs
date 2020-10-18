@@ -14,6 +14,7 @@ public class EnemyBase : MonoBehaviour
     private bool aggroed = false;
     private bool isRunning = false;
     private NpcBase basic;
+    [SerializeField] private Animator animator;
     
     void Start()
     {
@@ -43,6 +44,7 @@ public class EnemyBase : MonoBehaviour
             {
                 
                 Debug.Log("Attacked");
+                animator.Play("Attack");
                 StartCoroutine(Wait());
 
             }

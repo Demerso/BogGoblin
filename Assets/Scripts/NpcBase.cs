@@ -16,13 +16,14 @@ public class NpcBase : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        
+        agent.updateRotation = false; // For quick rotation
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (agent.velocity.magnitude != 0) transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
 
         if (isRunning == false)
         {
