@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractableNpc : Clickable
 {
-    DeckardVoiceLine dvl;
+    AddSound dvl;
     public int nbQuest = 1;
     bool soundPlaying = false;
     public Canvas canvas;
@@ -30,7 +30,7 @@ public class InteractableNpc : Clickable
     {
 
         qm.ShowQuest();
-        dvl = GetComponent<DeckardVoiceLine>();
+        dvl = GetComponent<AddSound>();
         //maybe add slow turn, for now instant
         transform.rotation = Quaternion.LookRotation(-player.forward); // look at player,temporary maybe because isnt facing npc, npc will look away
         

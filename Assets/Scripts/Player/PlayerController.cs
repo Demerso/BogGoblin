@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Transactions;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -10,14 +10,19 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
 
     Camera cam;
+    public LayerMask mask;
     Movement moves;
     public Clickable Looking;
-   
+    private GameObject particle;
+    RaycastHit hit;
+
     void Start()
     {
         cam = Camera.main;
         moves = GetComponent<Movement>();
+
     }
+
 
     // Update is called once per frame
     void Update()
@@ -26,23 +31,42 @@ public class PlayerController : MonoBehaviour
         {
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if(Physics.Raycast(ray, out hit,100))
+
+            if(Physics.Raycast(ray, out hit,100,mask))
             {
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                if(Looking != null)
                 {
-                    if(Looking != null)
-                    {
-                        Looking.DeFocus();
-                    }
-                    moves.MoveToPoint(hit.point);
-                    //Maybe Make function Unfollow, could help clarify.
-                    Looking = null;
-                    moves.UnFollow();
+                    Looking.DeFocus();
                 }
-                
+
+                moves.MoveToPoint(hit.point);
+                //Maybe Make function Unfollow, could help clarify.
+                Looking = null;
+                moves.UnFollow();
+
+     
             }
 
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+
+            particle = ObjectPooler.SharedInstance.GetPooledObject();
+            if (particle == null)
+            {
+
+                ObjectPooler.SharedInstance.DestroyFirst();
+                particle = ObjectPooler.SharedInstance.GetPooledObject();
+
+            }
+                 particle.transform.position = hit.point;
+
+                particle.transform.position = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
+
+                particle.SetActive(true);
+                Debug.Log(particle.transform.position);
+
+            
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -66,6 +90,7 @@ public class PlayerController : MonoBehaviour
             moves.Follow(Looking);
         }
     }
+
     void SetFocus(Clickable clicked)
     {
         if(Looking != clicked)

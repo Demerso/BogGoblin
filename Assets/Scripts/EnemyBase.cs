@@ -10,10 +10,12 @@ public class EnemyBase : MonoBehaviour
     public float attackRate = 3f;
     public Transform player;
     private NavMeshAgent agent;
-    private WaitForSeconds nextAttack = new WaitForSeconds(1.5f);//waiting time after attack
+    private WaitForSeconds nextAttack = new WaitForSeconds(2.5f);//waiting time after attack
+    private WaitForSeconds delay = new WaitForSeconds(0.5f);
     private bool aggroed = false;
     private bool isRunning = false;
     private NpcBase basic;
+    AddSound golemSound;
     [SerializeField] private Animator animator;
     
     void Start()
@@ -23,6 +25,7 @@ public class EnemyBase : MonoBehaviour
         //agent.stoppingDistance = attackRange * 0.9f;
         //CANNOT CHANGE STOPPING DISTANCE BECAUSE WILL CHANGE NPC MOVEMENT ASWELL 
         basic = GetComponent<NpcBase>();
+        golemSound = GetComponent<AddSound>();
     }
 
 
@@ -57,8 +60,13 @@ public class EnemyBase : MonoBehaviour
 
     private IEnumerator Wait()
     {
+  
         isRunning = true;
         agent.isStopped = true;
+        yield return delay;
+
+        golemSound.voiceLine.clip = golemSound.vl[Random.Range(0, golemSound.vl.Length - 1)];
+        golemSound.voiceLine.Play();
         yield return nextAttack;
         agent.isStopped = false;
         isRunning = false;

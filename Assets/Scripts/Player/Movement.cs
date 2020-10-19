@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
         if (agent.velocity.magnitude != 0) transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
         if(followed != null)
         {
-            //RotateTowardTarget(); //cant add rotation in chek, needs to be done everyfame else slow takes too long to rotate.
+            RotateTowardTarget(); //cant add rotation in chek, needs to be done everyfame else slow takes too long to rotate.
             if (isRunning == false)
             {
 

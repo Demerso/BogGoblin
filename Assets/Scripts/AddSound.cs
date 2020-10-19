@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeckardVoiceLine : MonoBehaviour
+public class AddSound : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource voiceLine;
