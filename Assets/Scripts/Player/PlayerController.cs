@@ -1,22 +1,21 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Movement))]
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    Camera cam;
-    public LayerMask mask;
-    Movement moves;
-    public Clickable Looking;
+    private Camera cam;
+    private Movement moves;
+    public Clickable looking;
     private GameObject particle;
-    RaycastHit hit;
 
-    void Start()
+    private void Start()
     {
         cam = Camera.main;
         moves = GetComponent<Movement>();
@@ -25,55 +24,42 @@ public class PlayerController : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButton(1))
         {
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-            if(Physics.Raycast(ray, out hit,100,mask))
+            if(Physics.Raycast(ray, out var hit,100))
             {
-                if(Looking != null)
+                if (GroundLayerHit(hit))
                 {
-                    Looking.DeFocus();
+                    if(looking != null)
+                    {
+                        looking.DeFocus();
+                    }
+
+                    moves.MoveToPoint(hit.point);
+                    //Maybe Make function Unfollow, could help clarify.
+                    looking = null;
+                    moves.UnFollow();
+                    
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        DrawClickRipple(hit);
+                    }
+                    
                 }
 
-                moves.MoveToPoint(hit.point);
-                //Maybe Make function Unfollow, could help clarify.
-                Looking = null;
-                moves.UnFollow();
-
-     
             }
 
         }
-        if (Input.GetMouseButtonDown(1))
-        {
-
-            particle = ObjectPooler.SharedInstance.GetPooledObject();
-            if (particle == null)
-            {
-
-                ObjectPooler.SharedInstance.DestroyFirst();
-                particle = ObjectPooler.SharedInstance.GetPooledObject();
-
-            }
-                 particle.transform.position = hit.point;
-
-                particle.transform.position = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
-
-                particle.SetActive(true);
-                Debug.Log(particle.transform.position);
-
-            
-        }
+        
         if (Input.GetMouseButtonDown(0))
         {
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
+            if (Physics.Raycast(ray, out var hit, 100))
             {
                 Clickable clicked = hit.collider.GetComponent<Clickable>();
 
@@ -85,28 +71,45 @@ public class PlayerController : MonoBehaviour
             }
 
         }
-        if(Looking != null)
+        if(looking != null)
         {
-            moves.Follow(Looking);
+            moves.Follow(looking);
         }
     }
 
     void SetFocus(Clickable clicked)
     {
-        if(Looking != clicked)
+        if(looking != clicked)
         {
-            if(Looking != null)
+            if(looking != null)
             {
-                Looking = clicked;
+                looking = clicked;
             }
-            Looking = clicked;
+            looking = clicked;
 
-            moves.Follow(Looking);
+            moves.Follow(looking);
         }
-        Looking.OnFocused(transform);
+        looking.OnFocused(transform);
     }
 
+    private void DrawClickRipple(RaycastHit hit)
+    {
+        particle = ObjectPooler.SharedInstance.GetPooledObject();
+        if (particle == null)
+        {
 
+            ObjectPooler.SharedInstance.DestroyFirst();
+            particle = ObjectPooler.SharedInstance.GetPooledObject();
+
+        }
+        particle.transform.position = hit.point + Vector3.up * 0.5f;
+        particle.SetActive(true);
+    }
+
+    private static bool GroundLayerHit(RaycastHit hit)
+    {
+        return hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground");
+    }
    
     
 }
