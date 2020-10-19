@@ -17,6 +17,7 @@ public class EnemyBase : MonoBehaviour
     private NpcBase basic;
     AddSound golemSound;
     [SerializeField] private Animator animator = null;
+    [SerializeField] private QuestManager manager;
     
     void Start()
     {
@@ -53,8 +54,6 @@ public class EnemyBase : MonoBehaviour
             }
             
         }
-        
-      
 
     }
 

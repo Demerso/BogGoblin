@@ -1,16 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestMenu : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    
+
     public GameObject questUI;
+    [SerializeField] private Text questDescription;
+    [SerializeField] private GameObject buttons;
+    [SerializeField] private QuestManager manager;
     public AudioSource AS;
     public AudioClip[] AC;
     private WaitForSeconds wait = new WaitForSeconds(0.5f);
+
+    private InteractableNpc currNpc;
+
     public bool active = false;
     // Update is called once per frame
     private void Start()
@@ -19,17 +26,28 @@ public class QuestMenu : MonoBehaviour
         questUI.SetActive(false);
        
     }
-    public void ShowQuest()
+    public void ShowQuest(InteractableNpc npc)
     {
-        active = true;
+        currNpc = npc;
+        questDescription.text = currNpc.quest.description;
+        buttons.SetActive(currNpc.quest.canAccept);
         questUI.SetActive(true);
+        active = true;
         StartCoroutine(Sound(AC[0]));
     }
     public void CloseQuest()
     {
-        active = false;
         questUI.SetActive(false);
+        active = false;
         StartCoroutine(Sound(AC[1]));
+        currNpc = null;
+    }
+
+    public void AcceptQuest()
+    {
+        manager.AddQuest(currNpc.quest);
+        currNpc.quest = Quest.NoQuest();
+        CloseQuest();
     }
 
     private IEnumerator Sound(AudioClip x)

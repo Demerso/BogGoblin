@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class InteractableNpc : Clickable
 {
     AddSound dvl;
-    public int nbQuest = 1;
     bool soundPlaying = false;
     public Canvas canvas;
     private QuestMenu qm;
+    public Quest quest;
     private void Start()
     {
         qm = canvas.GetComponent<QuestMenu>();
@@ -29,7 +30,7 @@ public class InteractableNpc : Clickable
     public override void interact()
     {
 
-        qm.ShowQuest();
+        qm.ShowQuest(this);
         dvl = GetComponent<AddSound>();
         //maybe add slow turn, for now instant
         transform.rotation = Quaternion.LookRotation(-player.forward); // look at player,temporary maybe because isnt facing npc, npc will look away
