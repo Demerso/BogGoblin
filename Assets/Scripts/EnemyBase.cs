@@ -16,7 +16,7 @@ public class EnemyBase : MonoBehaviour
     private bool isRunning = false;
     private NpcBase basic;
     AddSound golemSound;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator animator = null;
     
     void Start()
     {

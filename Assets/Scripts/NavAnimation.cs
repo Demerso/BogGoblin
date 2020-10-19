@@ -7,8 +7,8 @@ using UnityEngine.AI;
 public class NavAnimation : MonoBehaviour
 {
 
-    [SerializeField] private Animator animator;
-    [SerializeField] private NavMeshAgent navAgent;
+    [SerializeField] private Animator animator = null;
+    [SerializeField] private NavMeshAgent navAgent = null;
 
     // Update is called once per frame
     private void Update()
