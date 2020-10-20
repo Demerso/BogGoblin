@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Movement))]
 public class PlayerController : MonoBehaviour
@@ -30,11 +25,11 @@ public class PlayerController : MonoBehaviour
         {
 
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray, out var hit,100))
+            if (Physics.Raycast(ray, out var hit, 100))
             {
                 if (GroundLayerHit(hit))
                 {
-                    if(looking != null)
+                    if (looking != null)
                     {
                         looking.DeFocus();
                     }
@@ -43,18 +38,18 @@ public class PlayerController : MonoBehaviour
                     //Maybe Make function Unfollow, could help clarify.
                     looking = null;
                     moves.UnFollow();
-                    
+
                     if (Input.GetMouseButtonDown(1))
                     {
                         DrawClickRipple(hit);
                     }
-                    
+
                 }
 
             }
 
         }
-        
+
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -63,15 +58,16 @@ public class PlayerController : MonoBehaviour
             {
                 Clickable clicked = hit.collider.GetComponent<Clickable>();
 
-                if(clicked != null)
+                if (clicked != null)
                 {
+                   
                     SetFocus(clicked);
                 }
-                
+
             }
 
         }
-        if(looking != null)
+        if (looking != null)
         {
             moves.Follow(looking);
         }
@@ -79,9 +75,9 @@ public class PlayerController : MonoBehaviour
 
     void SetFocus(Clickable clicked)
     {
-        if(looking != clicked)
+        if (looking != clicked)
         {
-            if(looking != null)
+            if (looking != null)
             {
                 looking = clicked;
             }
@@ -89,6 +85,7 @@ public class PlayerController : MonoBehaviour
 
             moves.Follow(looking);
         }
+       
         looking.OnFocused(transform);
     }
 
@@ -110,6 +107,6 @@ public class PlayerController : MonoBehaviour
     {
         return hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground");
     }
-   
-    
+
+
 }

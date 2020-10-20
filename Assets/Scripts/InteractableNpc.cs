@@ -12,7 +12,9 @@ public class InteractableNpc : Clickable
     public Quest quest;
     private void Start()
     {
+        base.Start();
         qm = canvas.GetComponent<QuestMenu>();
+        
     }
 
     public override void DeFocus()

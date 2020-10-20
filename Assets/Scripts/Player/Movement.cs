@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -25,9 +22,9 @@ public class Movement : MonoBehaviour
     void Update()
     {
         if (agent.velocity.magnitude != 0) transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
-        if(followed != null)
+        if (followed != null)
         {
-            //RotateTowardTarget(); //cant add rotation in chek, needs to be done everyfame else slow takes too long to rotate.
+            RotateTowardTarget(); //cant add rotation in chek, needs to be done everyfame else slow takes too long to rotate.
             if (isRunning == false)
             {
 
@@ -59,7 +56,7 @@ public class Movement : MonoBehaviour
         agent.updateRotation = false;
         agent.stoppingDistance = looking.range * 0.9f;
     }
-    
+
     public void UnFollow()
     {
         followed = null;
@@ -72,6 +69,6 @@ public class Movement : MonoBehaviour
         //Character rotates faster when rotate then when normal moving, maybe fix? later
         Vector3 dir = (followed.position - transform.position).normalized; //return only direction vector;
         Quaternion lookR = Quaternion.LookRotation(new Vector3(dir.x, 0f, dir.z));//dont want to look up or down only rotate on xz axis
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookR, Time.deltaTime *5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookR, Time.deltaTime * 5f);
     }
 }
