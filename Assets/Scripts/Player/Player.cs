@@ -1,5 +1,6 @@
 ﻿using Unity.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     public LineRenderer shot;
     public Transform shootP;
     public AudioSource aud;
+    public Health health;
 
     private void Start()
     {
@@ -26,9 +28,8 @@ public class Player : MonoBehaviour
         shot.endWidth = 0.2f;
         shot.startWidth = 0.2f;
         aud = GetComponent<AudioSource>();
+        health.onDeath.AddListener(Die);
     }
-
-
 
     // Update is called once per frame
     void Update()
@@ -70,6 +71,12 @@ public class Player : MonoBehaviour
             animName = "Shoot";
         }
     }
+
+    private void Die()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

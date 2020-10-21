@@ -2780,6 +2780,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 332824988732224808, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 1928412940}
     - target: {fileID: 3237770194961272825, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.5738956
@@ -2810,7 +2814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8894568524282444851, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40
+      value: -8.8
       objectReference: {fileID: 0}
     - target: {fileID: 8894568524282444851, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2818,7 +2822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8894568524282444851, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 58.1
+      value: 16.4
       objectReference: {fileID: 0}
     - target: {fileID: 8894568524282444851, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2848,6 +2852,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9221860841717789045, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 871842628}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
 --- !u!4 &1879405409 stripped
@@ -2947,29 +2955,17 @@ MonoBehaviour:
   scrollRect: {fileID: 637391373}
   questDisplayPrefab: {fileID: 4341927402294400370, guid: 3c0ebf81a2656674ea6fd361d8110c54, type: 3}
   questMenu: {fileID: 687743285}
---- !u!1 &1928412939 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8894568524282444854, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
+--- !u!114 &1928412940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9221860841717789045, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
   m_PrefabInstance: {fileID: 1879405408}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1928412940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928412939}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0079969f4dd8694589b986856c034a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarPrefab: {fileID: 5426713236194696443, guid: 10a3bf3985970204fb5d82fc83c26977, type: 3}
-  mainCamera: {fileID: 871842628}
-  hp: 50
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1969874480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3455,7 +3451,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1435574648935031248, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.4
+      value: -3.62
       objectReference: {fileID: 0}
     - target: {fileID: 1435574648935031248, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3463,7 +3459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1435574648935031248, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 58.36
+      value: 18.18
       objectReference: {fileID: 0}
     - target: {fileID: 1435574648935031248, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
       propertyPath: m_LocalRotation.x
