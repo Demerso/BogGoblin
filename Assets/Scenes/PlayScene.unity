@@ -1057,8 +1057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questUI: {fileID: 202880279}
   questDescription: {fileID: 1823435419}
-  buttons: {fileID: 2112034225}
-  manager: {fileID: 1912646288}
+  questManager: {fileID: 1912646288}
   AS: {fileID: 0}
   AC:
   - {fileID: 8300000, guid: cac60eec85eb140458b2a8f5ae2bef57, type: 3}
@@ -1761,6 +1760,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1087388685}
+  - component: {fileID: 1087388687}
+  - component: {fileID: 1087388686}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1784,9 +1785,49 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000015724128}
-  m_SizeDelta: {x: 0, y: 300}
+  m_AnchoredPosition: {x: 0, y: 0.000036741563}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1087388686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087388684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
+--- !u!114 &1087388687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087388684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 0
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 1
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1093270150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,7 +2023,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1912646288}
         m_TargetAssemblyTypeName: QuestManager, Assembly-CSharp
-        m_MethodName: OpenDisplay
+        m_MethodName: ToggleDisplay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2905,11 +2946,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1912646284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75b4c9f5abd532f47afa88d2167c88f8, type: 3}
+  m_Script: {fileID: 11500000, guid: f81363f2bd9c33043a9472b48a3d588c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scrollRect: {fileID: 637391373}
-  questPrefab: {fileID: 4341927402294400370, guid: 3c0ebf81a2656674ea6fd361d8110c54, type: 3}
+  questDisplayPrefab: {fileID: 4341927402294400370, guid: 3c0ebf81a2656674ea6fd361d8110c54, type: 3}
+  questMenu: {fileID: 687743285}
 --- !u!1 &1969874480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3493,6 +3535,130 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quest.enemy
+      value: 
+      objectReference: {fileID: 6855579452593030135}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: questManager
+      value: 
+      objectReference: {fileID: 1912646288}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quest.description
+      value: Head South-West to kill the Bog Goblin in the marsh
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quest.name
+      value: Kill the Bog Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[0].bypassAccept
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[0].questGiver
+      value: 
+      objectReference: {fileID: 579979941217566669}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[0].name
+      value: See Lord Goldbloom
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[0].description
+      value: See Lord Goldbloom
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[0].questType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[0].interactNpc
+      value: 
+      objectReference: {fileID: 579979941217566672}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[1].bypassAccept
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[1].questGiver
+      value: 
+      objectReference: {fileID: 579979941217566669}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[1].name
+      value: Kill the Bog Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[1].description
+      value: Head South-West to kill the Bog Goblin in the Marsh
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[1].questType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[1].interactNpc
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[2].bypassAccept
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[2].questGiver
+      value: 
+      objectReference: {fileID: 579979941217566669}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[2].name
+      value: Go back to Lord Goldbloom
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[2].description
+      value: Go back to Lord Goldbloom
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[2].questType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[2].interactNpc
+      value: 
+      objectReference: {fileID: 579979941217566672}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[1].killEnemy
+      value: 
+      objectReference: {fileID: 6855579452593030135}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[3].bypassAccept
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[3].questGiver
+      value: 
+      objectReference: {fileID: 579979941217566669}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[3].name
+      value: You WIN!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[3].description
+      value: YOU WIN!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[3].questType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[3].interactNpc
+      value: 
+      objectReference: {fileID: 579979941217566672}
+    - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+      propertyPath: quests.Array.data[3].isComplete
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6554481661385308128, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
       propertyPath: vl.Array.size
       value: 5
@@ -3527,6 +3693,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+--- !u!114 &579979941217566669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+  m_PrefabInstance: {fileID: 579979941217566667}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2933026fadab4348b3d1ee4f5182abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &579979941217566672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4766406542659245332, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
+  m_PrefabInstance: {fileID: 579979941217566667}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8961b55c26d4f45bef1e8fdbe25089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &608130082376389541
 Transform:
   m_ObjectHideFlags: 0
@@ -4657,7 +4845,7 @@ PrefabInstance:
     - target: {fileID: 897381830685766954, guid: 853158caffe1b2a49abfcd4b19979363, type: 3}
       propertyPath: questManager
       value: 
-      objectReference: {fileID: 1912646288}
+      objectReference: {fileID: 0}
     - target: {fileID: 6855579452405554177, guid: 853158caffe1b2a49abfcd4b19979363, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.31
@@ -4697,7 +4885,7 @@ PrefabInstance:
     - target: {fileID: 6855579452405554180, guid: 853158caffe1b2a49abfcd4b19979363, type: 3}
       propertyPath: manager
       value: 
-      objectReference: {fileID: 1912646288}
+      objectReference: {fileID: 0}
     - target: {fileID: 6855579452405554182, guid: 853158caffe1b2a49abfcd4b19979363, type: 3}
       propertyPath: points.Array.data[0]
       value: 
@@ -4724,6 +4912,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 853158caffe1b2a49abfcd4b19979363, type: 3}
+--- !u!114 &6855579452593030135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 897381830685766954, guid: 853158caffe1b2a49abfcd4b19979363, type: 3}
+  m_PrefabInstance: {fileID: 6855579452593030134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a51bad1117d0247abb36855a0a61fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &6887295751687003625
 MeshFilter:
   m_ObjectHideFlags: 0

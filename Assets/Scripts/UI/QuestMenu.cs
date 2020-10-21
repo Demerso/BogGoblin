@@ -10,13 +10,12 @@ public class QuestMenu : MonoBehaviour
 
     public GameObject questUI;
     [SerializeField] private Text questDescription;
-    [SerializeField] private GameObject buttons;
-    [SerializeField] private QuestManager manager;
+    [SerializeField] private QuestManager questManager;
     public AudioSource AS;
     public AudioClip[] AC;
     private WaitForSeconds wait = new WaitForSeconds(0.5f);
 
-    private InteractableNpc currNpc;
+    private QuestGiver currGiver;
 
     public bool active = false;
     // Update is called once per frame
@@ -26,11 +25,10 @@ public class QuestMenu : MonoBehaviour
         questUI.SetActive(false);
        
     }
-    public void ShowQuest(InteractableNpc npc)
+    public void ShowQuest(QuestGiver giver)
     {
-        currNpc = npc;
-        questDescription.text = currNpc.quest.description;
-        buttons.SetActive(currNpc.quest.canAccept);
+        currGiver = giver;
+        questDescription.text = giver.GetQuest().description;
         questUI.SetActive(true);
         active = true;
         StartCoroutine(Sound(AC[0]));
@@ -40,13 +38,12 @@ public class QuestMenu : MonoBehaviour
         questUI.SetActive(false);
         active = false;
         StartCoroutine(Sound(AC[1]));
-        currNpc = null;
+        currGiver = null;
     }
 
     public void AcceptQuest()
     {
-        manager.AddQuest(currNpc.quest);
-        currNpc.quest = Quest.NoQuest();
+        questManager.AddQuest(currGiver);
         CloseQuest();
     }
 

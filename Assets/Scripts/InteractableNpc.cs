@@ -2,42 +2,45 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InteractableNpc : Clickable
 {
     AddSound dvl;
     bool soundPlaying = false;
     public Canvas canvas;
-    private QuestMenu qm;
-    public Quest quest;
+    public UnityEvent onInteract = new UnityEvent();
+
+    private QuestGiver questGiver;
+
+    private bool isQuestGiver;
     private void Start()
     {
         base.Start();
-        qm = canvas.GetComponent<QuestMenu>();
-        
+        questGiver = GetComponent<QuestGiver>();
+        isQuestGiver = questGiver != null;
     }
 
     public override void DeFocus()
     {
         base.DeFocus();
-        if (qm.active)
+        if (isQuestGiver)
         {
-            Debug.Log(qm.active);
-            qm.CloseQuest();
+            if (questGiver.HasFocus())
+            {
+                questGiver.LoseFocus();
+            }
         }
-        
     }
 
 
     public override void interact()
     {
-
-        qm.ShowQuest(this);
+        onInteract.Invoke();
+        questGiver.GiveQuest();
         dvl = GetComponent<AddSound>();
         //maybe add slow turn, for now instant
         transform.rotation = Quaternion.LookRotation(-player.forward); // look at player,temporary maybe because isnt facing npc, npc will look away
-        
-        
         if(soundPlaying == false)
         {
             StartCoroutine(Sound());
