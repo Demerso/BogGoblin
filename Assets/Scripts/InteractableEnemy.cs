@@ -33,8 +33,6 @@ public class InteractableEnemy : Clickable
             if (joueur.melee == false)
             {
                 Debug.Log("okay");
-                joueur.shot.SetPosition(0, joueur.shootP.position);
-                joueur.shot.SetPosition(1, receiveP.transform.position);
                 StartCoroutine(shoot());
                
                 
@@ -52,7 +50,8 @@ public class InteractableEnemy : Clickable
     {
         joueur.animator.SetTrigger(joueur.animName);
         yield return new WaitForSeconds(0.2f);
-    
+        joueur.shot.SetPosition(0, joueur.shootP.position);
+        joueur.shot.SetPosition(1, receiveP.transform.position);
         joueur.shot.enabled = true;
         joueur.aud.Play();
         health.TakeDmg(joueur.dmg);
