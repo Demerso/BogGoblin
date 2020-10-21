@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 4766406542659245332}
   - component: {fileID: 5755977125968430487}
   - component: {fileID: 7914827764044387313}
+  - component: {fileID: 5509886964708824142}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -103,7 +104,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 3
-  nbQuest: 0
+  isFocus: 0
+  player: {fileID: 0}
+  interacted: 0
+  isEnemy: 0
+  p: {fileID: 0}
+  joueur: {fileID: 0}
   canvas: {fileID: 0}
 --- !u!114 &5755977125968430487
 MonoBehaviour:
@@ -138,6 +144,25 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5509886964708824142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813053752904570883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2933026fadab4348b3d1ee4f5182abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest:
+    isComplete: 0
+    name: 
+    description: 
+    questType: 0
+    enemy: {fileID: 0}
+  questManager: {fileID: 0}
 --- !u!1001 &3473165181564291333
 PrefabInstance:
   m_ObjectHideFlags: 0

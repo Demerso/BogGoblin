@@ -10,13 +10,15 @@ public class InteractableEnemy : Clickable
     public float hp = 50f;
     public GameObject receiveP;
 
+    public UnityEvent onDeath = new UnityEvent();
+
     [SerializeField] private Animator animator;
-    [SerializeField] private QuestManager questManager;
-    
+
     // Start is called before the first frame update
     private void Start()
     {
         base.Start();
+        onDeath.AddListener(Die);
     }
 
     // Update is called once per frame
@@ -64,7 +66,7 @@ public class InteractableEnemy : Clickable
         Debug.Log(hp);
         if (hp <= 0)
         {
-            Die();
+            onDeath.Invoke();
         }
     }
 
@@ -76,7 +78,6 @@ public class InteractableEnemy : Clickable
         GetComponent<InteractableEnemy>().enabled = false;
         GetComponent<NavMeshAgent>().enabled = false;
         animator.Play("Dying");
-        questManager.CompleteQuest(1);
     }
   
 }
