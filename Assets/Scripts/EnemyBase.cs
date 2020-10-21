@@ -8,7 +8,7 @@ public class EnemyBase : MonoBehaviour
     public float aggroR = 8f;
     public float attackRange = 4f;
     public float attackRate = 3f;
-    private float hitRange = 2f;
+    private const float HitRange = 3f;
     public float dmg = 10f;
     public Transform player;
     private NavMeshAgent agent;
@@ -61,7 +61,7 @@ public class EnemyBase : MonoBehaviour
     
     public void CheckHit()
     {
-        var hitColliders = Physics.OverlapSphere(hitDetectCenter.position, hitRange);
+        var hitColliders = Physics.OverlapSphere(hitDetectCenter.position, HitRange);
         foreach (var collider in hitColliders)
         {
             if (collider.gameObject != gameObject) // Stop hitting yourself
@@ -89,6 +89,6 @@ public class EnemyBase : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(hitDetectCenter.position, hitRange);
+        Gizmos.DrawWireSphere(hitDetectCenter.position, HitRange);
     }
 }
