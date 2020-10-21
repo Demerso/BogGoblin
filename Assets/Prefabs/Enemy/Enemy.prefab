@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6855579452405554178}
   - component: {fileID: 6855579452405554181}
   - component: {fileID: 6855579452405554180}
-  - component: {fileID: 6855579452405554183}
   - component: {fileID: 6855579452405554182}
+  - component: {fileID: 897381830685766954}
+  - component: {fileID: 1918504174595617366}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6855579452405554201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -22.762, y: 0, z: 20.29}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7304693760947673656}
   m_Father: {fileID: 0}
@@ -69,7 +70,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.15
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &6855579452405554180
@@ -89,19 +90,7 @@ MonoBehaviour:
   attackRate: 3
   player: {fileID: 0}
   animator: {fileID: 3010749768580943613}
---- !u!114 &6855579452405554183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6855579452405554201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46f26910b840fc46b56091514228f1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 3
+  manager: {fileID: 0}
 --- !u!114 &6855579452405554182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +108,45 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &897381830685766954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855579452405554201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a51bad1117d0247abb36855a0a61fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 3
+  isFocus: 0
+  player: {fileID: 0}
+  interacted: 0
+  isEnemy: 0
+  p: {fileID: 0}
+  joueur: {fileID: 0}
+  hp: 50
+  receiveP: {fileID: 6855579452405554201}
+--- !u!114 &1918504174595617366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855579452405554201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4dbcef1529a5c04b81cb220bb797a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voiceLine: {fileID: 0}
+  vl:
+  - {fileID: 8300000, guid: f0359075d2a8d114392f73aca5175848, type: 3}
+  - {fileID: 8300000, guid: c2a261fa93ef47842840d396536a6de5, type: 3}
+  - {fileID: 8300000, guid: 1a966ff54a1722b49be65d54132f97f3, type: 3}
+  - {fileID: 8300000, guid: c96c0b72c3b66c64795268f8927c6ca0, type: 3}
 --- !u!95 &3010749768580943613
 Animator:
   serializedVersion: 3

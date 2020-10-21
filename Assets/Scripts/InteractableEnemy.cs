@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class InteractableEnemy : Clickable
 {
@@ -7,11 +9,14 @@ public class InteractableEnemy : Clickable
 
     public float hp = 50f;
     public GameObject receiveP;
+
+    [SerializeField] private Animator animator;
+    [SerializeField] private QuestManager questManager;
+    
     // Start is called before the first frame update
     private void Start()
     {
         base.Start();
-
     }
 
     // Update is called once per frame
@@ -59,8 +64,19 @@ public class InteractableEnemy : Clickable
         Debug.Log(hp);
         if (hp <= 0)
         {
-            this.gameObject.SetActive(false);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<EnemyBase>().enabled = false;
+        GetComponent<NpcBase>().enabled = false;
+        GetComponent<InteractableEnemy>().enabled = false;
+        GetComponent<NavMeshAgent>().enabled = false;
+        animator.Play("Dying");
+        questManager.CompleteQuest(1);
     }
   
 }

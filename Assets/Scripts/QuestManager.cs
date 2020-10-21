@@ -42,15 +42,16 @@ public class QuestManager : MonoBehaviour
 
     public void AddQuest(Quest quest)
     {
-        quests.Add(quest.id, quest);
+        quests.Add(quest.id, new Tuple<int, Quest>(quests.Count, quest));
         GetQuestShown(quest);
     }
 
     public void CompleteQuest(int id)
     {
-        var quest = (Quest) quests[id];
+        print(quests[id]);
+        (var childId, var quest) = (Tuple<int, Quest>)quests[id];
         quest.completed = true;
-        scrollRect.content.transform.GetChild(id).GetComponent<Toggle>().isOn = true;
+        scrollRect.content.transform.GetChild(childId).GetComponent<Toggle>().isOn = true;
     }
     
     public void OpenDisplay()
