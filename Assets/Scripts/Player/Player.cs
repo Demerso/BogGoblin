@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private float cRate = 2f;
     public float talkRange = 3f;
     public Animator animator = null;
-    public string animName = "Slashing";
+    public string animName = "Slash";
     public LineRenderer shot;
     public Transform shootP;
     public AudioSource aud;
@@ -60,14 +60,14 @@ public class Player : MonoBehaviour
         {
             cRange = mAttackRange;
             cRate = mAttackRate;
-            animName = "Slashing";
+            animName = "Slash";
             
         }
         else
         {
             cRange = rAttackRange;
             cRate = rAttackRate;
-            animName = "Shooting";
+            animName = "Shoot";
         }
     }
     private void OnDrawGizmosSelected()

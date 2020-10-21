@@ -41,7 +41,7 @@ public class InteractableEnemy : Clickable
             }
             else
             {
-                joueur.animator.Play(joueur.animName);
+                joueur.animator.SetTrigger(joueur.animName);
                 takeDmg();
             }
         }
@@ -50,7 +50,7 @@ public class InteractableEnemy : Clickable
     }
     private IEnumerator shoot()
     {
-        joueur.animator.Play(joueur.animName);
+        joueur.animator.SetTrigger(joueur.animName);
         yield return new WaitForSeconds(0.2f);
     
         joueur.shot.enabled = true;
@@ -77,7 +77,7 @@ public class InteractableEnemy : Clickable
         GetComponent<NpcBase>().enabled = false;
         GetComponent<InteractableEnemy>().enabled = false;
         GetComponent<NavMeshAgent>().enabled = false;
-        animator.Play("Dying");
+        animator.SetTrigger("Die");
     }
   
 }

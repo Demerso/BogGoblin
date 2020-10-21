@@ -341,7 +341,7 @@ MonoBehaviour:
   cRange: 4
   talkRange: 3
   animator: {fileID: 6571535320325353367}
-  animName: Slashing
+  animName: Slash
   shot: {fileID: 5164447850973237775}
   shootP: {fileID: 3900019277659042881}
   aud: {fileID: 4497947753741259572}

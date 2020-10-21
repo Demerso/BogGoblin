@@ -47,7 +47,7 @@ public class EnemyBase : MonoBehaviour
             {
                 
                 Debug.Log("Attacked");
-                animator.Play("Attack");
+                animator.SetTrigger("Attack");
                 StartCoroutine(Wait());
 
             }
