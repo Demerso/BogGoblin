@@ -8,6 +8,8 @@ public class EnemyBase : MonoBehaviour
     public float aggroR = 8f;
     public float attackRange = 4f;
     public float attackRate = 3f;
+    private float hitRange = 2f;
+    public float dmg = 10f;
     public Transform player;
     private NavMeshAgent agent;
     private WaitForSeconds nextAttack = new WaitForSeconds(2.5f);//waiting time after attack
@@ -17,6 +19,7 @@ public class EnemyBase : MonoBehaviour
     private NpcBase basic;
     AddSound golemSound;
     [SerializeField] private Animator animator = null;
+    [SerializeField] private Transform hitDetectCenter;
     
     void Start()
     {
@@ -55,6 +58,16 @@ public class EnemyBase : MonoBehaviour
         }
 
     }
+    
+    public void CheckHit()
+    {
+        var hitColliders = Physics.OverlapSphere(hitDetectCenter.position, hitRange);
+        foreach (var collider in hitColliders)
+        {
+            if (collider.gameObject != gameObject) // Stop hitting yourself
+                collider.gameObject.GetComponent<Health>()?.TakeDmg(dmg);
+        }
+    }
 
     private IEnumerator Wait()
     {
@@ -75,5 +88,7 @@ public class EnemyBase : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, aggroR);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(hitDetectCenter.position, hitRange);
     }
 }
