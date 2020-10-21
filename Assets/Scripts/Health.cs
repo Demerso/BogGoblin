@@ -37,6 +37,7 @@ public class Health : MonoBehaviour
         hp -= dmg;
         if (hp <= 0)
         {
+            healthBar.gameObject.SetActive(false);
             onDeath.Invoke();
         }
     }
