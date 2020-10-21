@@ -10,7 +10,7 @@ public class InteractableEnemy : Clickable
     public float hp = 50f;
     public GameObject receiveP;
 
-    public UnityEvent onDeath = new UnityEvent();
+    public Health health;
 
     [SerializeField] private Animator animator;
 
@@ -18,7 +18,7 @@ public class InteractableEnemy : Clickable
     private void Start()
     {
         base.Start();
-        onDeath.AddListener(Die);
+        health.onDeath.AddListener(Die);
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class InteractableEnemy : Clickable
             else
             {
                 joueur.animator.SetTrigger(joueur.animName);
-                takeDmg();
+                health.TakeDmg(joueur.dmg);
             }
         }
 
@@ -55,19 +55,9 @@ public class InteractableEnemy : Clickable
     
         joueur.shot.enabled = true;
         joueur.aud.Play();
-        takeDmg();
+        health.TakeDmg(joueur.dmg);
         yield return new WaitForSeconds(0.25f);
         joueur.shot.enabled = false;
-    }
-    public void takeDmg()
-    {
-        
-        hp = hp - joueur.dmg;
-        Debug.Log(hp);
-        if (hp <= 0)
-        {
-            onDeath.Invoke();
-        }
     }
 
     private void Die()

@@ -40,7 +40,7 @@ public class QuestManager : MonoBehaviour
         switch (quest.questType)
         {
             case QuestType.Kill:
-                quest.killEnemy.onDeath.AddListener(quest.CompleteQuest);
+                quest.killEnemy.health.onDeath.AddListener(quest.CompleteQuest);
                 break;
             case QuestType.Interact:
                 quest.interactNpc.onInteract.AddListener(quest.CompleteQuest);

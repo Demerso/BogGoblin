@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6855579452405554182}
   - component: {fileID: 897381830685766954}
   - component: {fileID: 1918504174595617366}
+  - component: {fileID: 7209242496359305049}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -90,7 +91,6 @@ MonoBehaviour:
   attackRate: 3
   player: {fileID: 0}
   animator: {fileID: 3010749768580943613}
-  manager: {fileID: 0}
 --- !u!114 &6855579452405554182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +129,8 @@ MonoBehaviour:
   joueur: {fileID: 0}
   hp: 50
   receiveP: {fileID: 6855579452405554201}
+  health: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &1918504174595617366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +149,24 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c2a261fa93ef47842840d396536a6de5, type: 3}
   - {fileID: 8300000, guid: 1a966ff54a1722b49be65d54132f97f3, type: 3}
   - {fileID: 8300000, guid: c96c0b72c3b66c64795268f8927c6ca0, type: 3}
+--- !u!114 &7209242496359305049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855579452405554201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0079969f4dd8694589b986856c034a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 5426713236194696443, guid: 10a3bf3985970204fb5d82fc83c26977, type: 3}
+  mainCamera: {fileID: 0}
+  hp: 50
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &3010749768580943613
 Animator:
   serializedVersion: 3
