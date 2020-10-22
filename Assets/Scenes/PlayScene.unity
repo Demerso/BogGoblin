@@ -393,6 +393,107 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: -10}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &213573193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8894568524282444854, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
+  m_PrefabInstance: {fileID: 1879405408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &213573202
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213573193}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &240949064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1215,8 @@ RectTransform:
   - {fileID: 1115454974}
   - {fileID: 1912646285}
   - {fileID: 118109856}
+  - {fileID: 790677295}
+  - {fileID: 1691042109}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1226,6 +1329,94 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 116.851, y: -17.889008, z: 0}
+--- !u!1 &790677291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 790677295}
+  - component: {fileID: 790677294}
+  - component: {fileID: 790677293}
+  - component: {fileID: 790677292}
+  m_Layer: 5
+  m_Name: axe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &790677292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790677291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7121f3cd076bc4cb5b7d46088a6840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axe: {fileID: 2800000, guid: e7a950e6e6b44104a8412fb58881797e, type: 3}
+  bow: {fileID: 2800000, guid: 301bc4b2b6303ab46a57ce2a719f6312, type: 3}
+  current: {fileID: 790677293}
+--- !u!114 &790677293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790677291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 301bc4b2b6303ab46a57ce2a719f6312, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &790677294
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790677291}
+  m_CullTransparentMesh: 0
+--- !u!224 &790677295
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790677291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 687743288}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 210.28, y: 260.73}
+  m_SizeDelta: {x: 61.4292, y: 47.53711}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &848821047
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,6 +2964,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589363722}
   m_CullTransparentMesh: 0
+--- !u!1 &1691042106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1691042109}
+  - component: {fileID: 1691042108}
+  - component: {fileID: 1691042107}
+  m_Layer: 5
+  m_Name: bow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1691042107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691042106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: e7a950e6e6b44104a8412fb58881797e, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1691042108
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691042106}
+  m_CullTransparentMesh: 0
+--- !u!224 &1691042109
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691042106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 687743288}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 210.28, y: 260.73}
+  m_SizeDelta: {x: 61.434082, y: 47.538574}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1823435417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,6 +3126,30 @@ PrefabInstance:
       propertyPath: health
       value: 
       objectReference: {fileID: 1928412940}
+    - target: {fileID: 332824988732224808, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 790677292}
+    - target: {fileID: 332824988732224808, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
+      propertyPath: axe
+      value: 
+      objectReference: {fileID: 790677291}
+    - target: {fileID: 332824988732224808, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
+      propertyPath: bow
+      value: 
+      objectReference: {fileID: 1691042106}
+    - target: {fileID: 332824988732224808, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 213573202}
+    - target: {fileID: 332824988732224808, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
+      propertyPath: clip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f074772fe5d317468eafc01ffbc3122, type: 3}
+    - target: {fileID: 332824988732224808, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
+      propertyPath: clip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c4c77f13a9860af4299a56766a175577, type: 3}
     - target: {fileID: 3237770194961272825, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.5738956
@@ -3039,7 +3326,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9221860841717789045, guid: 23b80b7329c799e4481eabe88e5dcabe, type: 3}
   m_PrefabInstance: {fileID: 1879405408}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 213573193}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0079969f4dd8694589b986856c034a4, type: 3}
@@ -3674,7 +3961,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
       propertyPath: quests.Array.data[1].description
-      value: Head South-West to kill the Bog Goblin in the Marsh
+      value: Head South-West to kill the Bog Goblin in the Marsh  (Press W to change
+        weapon)
       objectReference: {fileID: 0}
     - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
       propertyPath: quests.Array.data[1].questType

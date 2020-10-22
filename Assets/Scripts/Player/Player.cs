@@ -1,6 +1,7 @@
 ﻿using Unity.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class Player : MonoBehaviour
     public Transform shootP;
     public AudioSource aud;
     public Health health;
+    public GameObject axe;
+    public GameObject bow;
+    public AudioSource weapon;
+    public AudioClip[] clip = new AudioClip[2];
 
     private void Start()
     {
@@ -62,6 +67,11 @@ public class Player : MonoBehaviour
             cRange = mAttackRange;
             cRate = mAttackRate;
             animName = "Slash";
+            axe.SetActive(true);
+            bow.SetActive(false);
+            weapon.clip = clip[0];
+            weapon.Play();
+            
             
         }
         else
@@ -69,6 +79,10 @@ public class Player : MonoBehaviour
             cRange = rAttackRange;
             cRate = rAttackRate;
             animName = "Shoot";
+            bow.SetActive(true);
+            axe.SetActive(false);
+            weapon.clip = clip[1];
+            weapon.Play();
         }
     }
 

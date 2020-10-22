@@ -51,15 +51,7 @@ public class InteractableNpc : Clickable
         
        
     }
-    /*
-    private IEnumerator Turn()
-    {
-        while(transform.forward != -player.forward)
-        {
-            transform.Rotate(Vector3.up * Time.deltaTime*10);
-            yield return null; 
-        }
-    }*/
+
 
     private IEnumerator Sound()
     {
