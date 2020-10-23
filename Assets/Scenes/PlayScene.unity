@@ -1154,6 +1154,7 @@ MonoBehaviour:
   questUI: {fileID: 202880279}
   questDescription: {fileID: 1823435419}
   questManager: {fileID: 1912646288}
+  buttons: {fileID: 2112034225}
   AS: {fileID: 0}
   AC:
   - {fileID: 8300000, guid: cac60eec85eb140458b2a8f5ae2bef57, type: 3}
@@ -3961,7 +3962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}
       propertyPath: quests.Array.data[1].description
-      value: e Bog Goblin in the Marsh  (Press W to change weapon)(Press W to change
+      value: Head South-East to kill the Bog Goblin in the Marsh  (Press W to change
         weapon)
       objectReference: {fileID: 0}
     - target: {fileID: 5509886964708824142, guid: ac5da1e4d63cc574a83ff6f928e7100c, type: 3}

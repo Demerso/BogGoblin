@@ -11,6 +11,7 @@ public class QuestMenu : MonoBehaviour
     public GameObject questUI;
     [SerializeField] private Text questDescription;
     [SerializeField] private QuestManager questManager;
+    [SerializeField] private GameObject buttons;
     public AudioSource AS;
     public AudioClip[] AC;
     private WaitForSeconds wait = new WaitForSeconds(0.5f);
@@ -33,8 +34,19 @@ public class QuestMenu : MonoBehaviour
         active = true;
         StartCoroutine(Sound(AC[0]));
     }
+
+    public void ShowNoQuest()
+    {
+        questDescription.text = "I have no quest for you";
+        buttons.SetActive(false);
+        questUI.SetActive(true);
+        active = true;
+        StartCoroutine(Sound(AC[0]));
+    }
+    
     public void CloseQuest()
     {
+        buttons.SetActive(true);
         questUI.SetActive(false);
         active = false;
         StartCoroutine(Sound(AC[1]));

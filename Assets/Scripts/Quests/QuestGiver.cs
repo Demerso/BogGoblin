@@ -22,7 +22,11 @@ public class QuestGiver : MonoBehaviour
     public void GiveQuest()
     {
         if (currQuest >= quests.Length) return;
-        if (quests[currQuest].bypassAccept)
+        if (currQuest >= 1 && quests[currQuest - 1].isComplete == false)
+        {
+            questManager.NoQuest();
+        }
+        else if (quests[currQuest].bypassAccept)
         {
             questManager.AddQuest(this);
         }

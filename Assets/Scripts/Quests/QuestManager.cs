@@ -55,6 +55,11 @@ public class QuestManager : MonoBehaviour
     {
         questMenu.ShowQuest(giver);
     }
+
+    public void NoQuest()
+    {
+        questMenu.ShowNoQuest();
+    }
     
     private void ClearDisplay()
     {
